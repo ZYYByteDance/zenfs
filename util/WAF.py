@@ -1,14 +1,33 @@
 #!/usr/bin/env python3
 
+import os
+import time
 
 # open files
 configFile = open("Config.txt", "r")
 beforeFile = open("SMART-Before.txt", "r")
 afterFile  = open("SMART-After.txt",  "r")
-resultFile = open("Output.txt", "w")
 
-		
-		
+
+# result folder
+expTimeString=str(time.strftime('%Y%m%d-%H%M%S'))
+resFolder=str("Results/"+expTimeString+"/")
+
+
+if not os.path.exists("Results"):
+	os.makedirs("Results")
+	
+try:
+	os.mkdir(resFolder)
+except OSError:
+	print("Creation of folder error.")
+else:
+	pass
+
+	
+resultFile = open(str(resFolder)+"Output.txt", "w+")
+
+
 def getLogicalWriteAmount(infile):
 	key=0
 	value=0
