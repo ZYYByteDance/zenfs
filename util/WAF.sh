@@ -16,4 +16,4 @@ sudo sh Config.sh
 sudo nvme smart-log /dev/nvme3n2 > SMART-After.txt
 
 # WAF calculation
-python WAF.py
+python WAFCalculation.py
